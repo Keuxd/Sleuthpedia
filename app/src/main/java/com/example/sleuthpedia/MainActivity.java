@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 //        Log.d("PRINT", "DB VERSION -> " + database.getVersion());
 
         db = new DatabaseHelper(this).init();
-        queryData();
+//        queryDataTest();
     }
 
     @Override
@@ -61,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    private void queryDataTest() {
         Cursor cursor = db.rawQuery("SELECT * FROM test", null);
 
         if(cursor.moveToFirst()) {
