@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Sleuthpedia</string>
+
+    <string name="menu_team">Time</string>
+    <string name="menu_home">Geral</string>
+    <string name="menu_options">Opções</string>
+
 </resources>
