@@ -5,5 +5,9 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
+    <style name="BottomNavigationView">
+        <item name="fontFamily">@font/jura</item>
+    </style>
+
     <style name="Theme.Sleuthpedia" parent="Base.Theme.Sleuthpedia" />
 </resources>
