@@ -7,6 +7,14 @@ import android.util.Log;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+
+import com.example.sleuthpedia.fragments.HomeFragment;
+import com.example.sleuthpedia.fragments.OptionsFragment;
+import com.example.sleuthpedia.fragments.TeamFragment;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,6 +43,24 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void queryData() {
+    private void setupBottomNavigation() {
+        HashMap<Integer, Fragment> fragmentMap = new HashMap<>();
+            fragmentMap.put(R.id.menu_home, new HomeFragment());
+            fragmentMap.put(R.id.menu_team, new TeamFragment());
+            fragmentMap.put(R.id.menu_options, new OptionsFragment());
+
+        BottomNavigationView bottomMenu = findViewById(R.id.bottomMenu);
+        bottomMenu.setItemIconTintList(null);
+
+        bottomMenu.setOnItemSelectedListener(item -> {
+            Fragment fragment = fragmentMap.get(item.getItemId());
+            if(fragment == null) return false;
+
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, fragment).commit();
+            return true;
+        });
+    }
+
         Cursor cursor = db.rawQuery("SELECT * FROM test", null);
 
         if(cursor.moveToFirst()) {
