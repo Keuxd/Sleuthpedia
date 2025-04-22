@@ -26,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
+        setupBottomNavigation();
+
 //        logDatabaseVersion();
 
         db = new DatabaseHelper(this).init();
@@ -40,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
     }
 
-    private void queryData() {
     private void setupBottomNavigation() {
         HashMap<Integer, Fragment> fragmentMap = new HashMap<>();
             fragmentMap.put(R.id.menu_home, new HomeFragment());
