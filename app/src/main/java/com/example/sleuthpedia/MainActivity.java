@@ -26,9 +26,7 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-//        String dbPath = getDatabasePath(DatabaseHelper.DB_NAME).toString();
-//        SQLiteDatabase database = SQLiteDatabase.openDatabase(dbPath, null, SQLiteDatabase.OPEN_READWRITE);
-//        Log.d("PRINT", "DB VERSION -> " + database.getVersion());
+//        logDatabaseVersion();
 
         db = new DatabaseHelper(this).init();
 //        queryDataTest();
@@ -71,5 +69,12 @@ public class MainActivity extends AppCompatActivity {
             } while(cursor.moveToNext());
         }
         cursor.close();
+    }
+
+    private void logDatabaseVersion() {
+        String dbPath = getDatabasePath(DatabaseHelper.DB_NAME).toString();
+        SQLiteDatabase database = SQLiteDatabase.openDatabase(dbPath, null, SQLiteDatabase.OPEN_READWRITE);
+        Log.d("PRINT", "DB VERSION -> " + database.getVersion());
+        database.close();
     }
 }
