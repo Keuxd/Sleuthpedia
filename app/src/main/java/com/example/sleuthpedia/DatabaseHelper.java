@@ -54,8 +54,4 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             Log.d("PRINT", e.getMessage());
         }
     }
-
-    public boolean doesDatabaseExist() {
-        return new File(dbPath).exists();
-    }
 }
