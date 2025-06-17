@@ -5,4 +5,11 @@
     <string name="menu_home">Home</string>
     <string name="menu_options">Options</string>
 
+    <string name="navigation_digimon">Digimon</string>
+    <string name="navigation_moves">Moves</string>
+    <string name="navigation_skills">Skills</string>
+    <string name="navigation_infos">Infos</string>
+    <string name="navigation_items">Items</string>
+
+    <string name="search_text">Search by name</string>
 </resources>
