@@ -6,7 +6,7 @@
     </style>
 
     <style name="BottomNavigationView">
-        <item name="fontFamily">@font/jura</item>
+        <item name="fontFamily">@font/jura_regular</item>
     </style>
 
     <style name="Theme.Sleuthpedia" parent="Base.Theme.Sleuthpedia" />
