@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_digimon"
+        android:title="@string/navigation_digimon" />
+    <item
+        android:id="@+id/navigation_moves"
+        android:title="@string/navigation_moves" />
+    <item
+        android:id="@+id/navigation_skills"
+        android:title="@string/navigation_skills" />
+    <item
+        android:id="@+id/navigation_infos"
+        android:title="@string/navigation_infos" />
+    <item
+        android:id="@+id/navigation_items"
+        android:title="@string/navigation_items" />
+</menu>
