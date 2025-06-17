@@ -12,14 +12,13 @@ import java.io.OutputStream;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-    public static final String DB_NAME = "test.db";
-    private final Context context;
-    private final String dbPath;
+    private static DatabaseHelper instance;
 
-    public DatabaseHelper(Context context) {
+    public static final String DB_NAME = "sleuth.db";
+
+    private DatabaseHelper(Context context) {
         super(context, DB_NAME, null, 1);
-        this.context = context;
-        this.dbPath = context.getDatabasePath(DB_NAME).getPath();
+        copyDatabaseFromAssets(context);
     }
 
     @Override
@@ -31,13 +30,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {Log.d("PRINT", "DOWNGRADE CALLED | " + oldVersion + " -> " + newVersion);}
 
-    public SQLiteDatabase init() {
-        if(!doesDatabaseExist()) {
-            this.getReadableDatabase();
-            copyDatabaseFromAssets();
+    public static void init(Context context) {
+        if(instance == null) {
+            instance = new DatabaseHelper(context);
         }
+    }
 
-        return SQLiteDatabase.openDatabase(dbPath, null, SQLiteDatabase.OPEN_READWRITE);
+    public static DatabaseHelper getInstance() {
+        if(instance == null) {
+            throw new IllegalStateException("Database not initialized. Call init() first");
+        }
+        return instance;
     }
 
     private void copyDatabaseFromAssets() {
