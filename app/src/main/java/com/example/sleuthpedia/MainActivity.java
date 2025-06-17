@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         setupBottomNavigation();
 
+        coloredAppName();
 
         DatabaseHelper.init(this);
 
@@ -59,6 +60,13 @@ public class MainActivity extends AppCompatActivity {
         bottomMenu.setSelectedItemId(R.id.menu_home);
     }
 
+    private void coloredAppName() {
+        TextView appName = findViewById(R.id.app_name_text);
+
+        String dscsHex = String.format("#%06X", (0xFFFFFF & ContextCompat.getColor(getApplicationContext(), R.color.dscs)));
+
+        String text = String.format("<font color=%s>Sleuth</font><font color=%s>pedia</font>", dscsHex, "#FFFFFF");
+        appName.setText(Html.fromHtml(text, Html.FROM_HTML_MODE_LEGACY));
     }
 
     private void queryDataTest() {
