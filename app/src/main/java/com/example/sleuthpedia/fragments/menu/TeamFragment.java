@@ -1,4 +1,4 @@
-package com.example.sleuthpedia.fragments;
+package com.example.sleuthpedia.fragments.menu;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,11 +10,11 @@ import androidx.fragment.app.Fragment;
 
 import com.example.sleuthpedia.R;
 
-public class HomeFragment extends Fragment {
+public class TeamFragment extends Fragment {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.home_fragment, container, false);
+        return inflater.inflate(R.layout.team_fragment, container, false);
     }
 
     @Override
